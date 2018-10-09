@@ -5,8 +5,20 @@
     <title>Quantified Self - Manage Foods</title>
   </head>
   <body>
+    <section class="form-section">
+      <h2>Create Food</h2>
+      <form class="form-container" action="">
+        <label for="name" aria-label="name-input">
+          <input id="name" type="text" placeholder="Name of Food" aria-required="true">
+        </label>
+        <label for="calories" aria-label="calories-input">
+          <input id="calories" type="text" placeholder="Calories in Food" aria-required="true">
+        </label>
+        <button id="create-food-btn" aria-label="create">Create Food</button>
+      </form>
+    </section>
     <div class="foods-table-index" id="foods-table-index">
-    
+
     </div>
       <a href="index.html"><button class="default-button">Meal Diary</button></a>
       <script
