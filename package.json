@@ -24,6 +24,8 @@
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.7",
     "babel-preset-env": "^1.6.0",
+    "basscss-btn": "^1.1.1",
+    "basscss-responsive-margin": "^1.1.0",
     "chai": "^3.5.0",
     "chromedriver": "^2.27.2",
     "css-loader": "^0.26.0",
@@ -40,6 +42,7 @@
     "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
-    "basscss": "^8.0.2"
+    "basscss": "^8.0.1",
+    "bootstrap": "^4.1.3"
   }
 }

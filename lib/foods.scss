@@ -1,1 +1,151 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin+Sketch|Didact+Gothic');
 
+.form-container {
+  padding: 10px;
+}
+
+#foods-table-index:nth-child(even) {
+  background-color: whitesmoke;
+}
+
+
+#toggle-food-menu {
+  color: white;
+}
+
+.food-container:hover {
+  transition: ease .5s;
+  padding: 5px;
+  box-shadow: 0 0px 2px 0 rgba(0,0,0,0.2);
+}
+
+p {
+  margin: 0;
+}
+
+h1, h2, h4 {
+  font-family: 'Cabin Sketch';
+}
+
+h2 {
+  padding-top: 10px;
+}
+
+h4 {
+  color: #f05555;
+}
+
+.food-container {
+  padding: 5px 0px 5px 0px;
+}
+progress[value] {
+  -webkit-appearance: none;
+   appearance: none;
+
+  width: 200px;
+  height: 20px;
+}
+
+progress[value]::-webkit-progress-bar {
+  background-color: #eee;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+progress[value]::-webkit-progress-value {
+  background-image:
+	   -webkit-linear-gradient(top,
+	                           rgba(255, 255, 255, .25),
+	                           rgba(0, 0, 0, .25)),
+	   -webkit-linear-gradient(left, #09c, #f44);
+    border-radius: 2px;
+    background-size: 35px 20px, 100% 100%, 100% 100%;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+.filter-search {
+  width: 40%;
+  background-color: white;
+  margin-left: 30px;
+}
+
+#filter-foods {
+  background-color: white;
+}
+
+.hand-drawn-button {
+  align-self:center;
+  background:transparent;
+  padding:.1rem .1rem;
+  transition:all .5s ease;
+  color:#41403E;
+  font-size:1.3rem;
+  letter-spacing:1px;
+  outline:none;
+  box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+   &:hover{
+     box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
+  }
+  &.lined.thick{
+     border:solid 7px #41403E;
+  }
+  &.dotted.thick{
+     border:dotted 5px #41403E;
+  }
+  &.dashed.thick{
+    border:dashed 5px #41403E;
+  }
+   &.lined.thin{
+     border:solid 2px #41403E;
+  }
+  &.dotted.thin{
+     border:dotted 2px #41403E;
+  }
+  &.dashed.thin{
+    border:dashed 2px #41403E;
+  }
+}
+
+body {
+  font-family: 'Didact Gothic', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+nav {
+  background-color: #436C87;
+  color: #DAECFF;
+}
+
+nav {
+  font-family: 'Cabin Sketch';
+  font-size: 19px;
+  background-color: #436C87;
+  color: #DAECFF;
+  .nav-link {
+    color: #DAECFF;
+  }
+  .navbar-brand {
+    font-size: 26px;
+    color: white;
+  }
+}
+
+main {
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 3%;
+}
+
+#create-food-form {
+  display: none;
+  background-color: #DAECFF;
+  border-radius: 10px;
+  margin-top: 20px;
+}
