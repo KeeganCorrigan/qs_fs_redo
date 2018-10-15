@@ -4,6 +4,15 @@
   padding: 10px;
 }
 
+.form-calories, .form-name {
+  font-family: 'Cabin Sketch';
+  font-size: 25px;
+}
+
+.meal-container {
+  padding-top: 20px;
+}
+
 #toggle-food-menu {
   color: white;
 }
@@ -21,7 +30,7 @@ p {
   margin: 0;
 }
 
-h1, h2, h4 {
+h1, h2, h4, h5 {
   font-family: 'Cabin Sketch';
 }
 

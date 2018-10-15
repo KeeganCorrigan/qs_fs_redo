@@ -18,12 +18,6 @@
           <ul class="navbar-nav ml-auto">
 
             <button class="hand-drawn-button dotted thin" id="toggle-food-menu"><i class="fas fa-plus"></i>  Create Food</button>
-            <li class="nav-item active">
-              <a class="nav-link" href="#">diary <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">foods</a>
-            </li>
           </ul>
         </div>
       </nav>
@@ -32,12 +26,12 @@
       <section class="form-section">
         <form class="form-container" id="create-food-form" action="">
           <div class="form-group">
-            <label for="name" aria-label="name-input">Name</label>
+            <label for="name" aria-label="name-input" class="form-name">Name</label>
               <input class="form-control" id="name" type="text" placeholder="Name of Food" aria-required="true">
             </label>
           </div>
           <div class="form-group">
-            <label for="calories" aria-label="calories-input">Calories</label>
+            <label for="calories" aria-label="calories-input" class="form-calories">Calories</label>
               <input class="form-control" id="calories" type="text" placeholder="Calories in Food" aria-required="true">
             </label>
           </div>
@@ -47,6 +41,7 @@
       <div class="row">
         <div class="col">
           <h2><i class="fas fa-cookie"></i> Foodtrition Facts</h2>
+          <h4>Available Foods:</h4>
           <div class="foods-table-index" id="foods-table-index">
             <div class="row">
               <div class="col-3">
