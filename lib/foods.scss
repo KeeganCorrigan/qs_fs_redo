@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Cabin+Sketch|Didact+Gothic');
 
+.disabled-btn {
+  background-color: gray !important;
+}
+
+.fa-ban {
+  font-size: 55px;
+  padding: 5px;
+}
+
 .form-container {
   padding: 10px;
 }

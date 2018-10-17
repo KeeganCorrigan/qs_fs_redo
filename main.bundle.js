@@ -66,14 +66,13 @@
 
 	var addFoodToMeal = function addFoodToMeal(event) {
 	  event.preventDefault();
-	  debugger;
 	  var foodId = event.target.dataset.foodId;
 	  var mealId = event.target.dataset.mealId;
 	  postNewMealFood(foodId, mealId);
 	};
 
 	var postNewMealFood = function postNewMealFood(foodId, mealId) {
-	  fetch('https://fast-meadow-36413.herokuapp.com/api/v1/meals/' + mealId + '/foods/' + foodId, {
+	  fetch('https://warm-cove-85701.herokuapp.com/api/v1/meals/' + mealId + '/foods/' + foodId, {
 	    method: "POST"
 	  }).then(function (response) {
 	    return mealFoodValidator(event, response);
@@ -89,7 +88,7 @@
 	};
 
 	var getMeals = function getMeals() {
-	  fetch('https://fast-meadow-36413.herokuapp.com/api/v1/meals').then(handleResponse).then(getEachMeal).then(errorLog);
+	  fetch('https://warm-cove-85701.herokuapp.com/api/v1/meals').then(handleResponse).then(getEachMeal).then(errorLog);
 	};
 
 	var getEachMeal = function getEachMeal(meals) {
@@ -152,7 +151,7 @@
 	  var foodId = event.target.dataset.foodId;
 	  var mealId = event.target.dataset.mealId;
 
-	  fetch('https://fast-meadow-36413.herokuapp.com/api/v1/meals/' + mealId + '/foods/' + foodId, {
+	  fetch('https://warm-cove-85701.herokuapp.com/api/v1/meals/' + mealId + '/foods/' + foodId, {
 	    method: "DELETE"
 	  }).then(function (response) {
 	    return deleteValidator(event, response);
@@ -164,16 +163,16 @@
 	};
 
 	var getFoods = function getFoods() {
-	  fetch('https://fast-meadow-36413.herokuapp.com/api/v1/foods').then(handleResponse).then(getEachFood).then(errorLog);
+	  fetch('https://warm-cove-85701.herokuapp.com/api/v1/foods').then(handleResponse).then(getEachFood).then(errorLog);
 	};
 
 	var postNewFood = function postNewFood(newFoodInfo) {
-	  fetch('https://fast-meadow-36413.herokuapp.com/api/v1/foods', newFoodPayload(newFoodInfo)).then(handleResponse).then(getFoods).then(errorLog);
+	  fetch('https://warm-cove-85701.herokuapp.com/api/v1/foods', newFoodPayload(newFoodInfo)).then(handleResponse).then(getFoods).then(errorLog);
 	};
 
 	var deleteFood = function deleteFood(event) {
 	  var id = event.currentTarget.id;
-	  fetch('https://fast-meadow-36413.herokuapp.com/api/v1/foods/' + id, {
+	  fetch('https://warm-cove-85701.herokuapp.com/api/v1/foods/' + id, {
 	    method: "DELETE"
 	  }).then(function (response) {
 	    return deleteValidator(event, response);
@@ -214,7 +213,7 @@
 	};
 
 	var appendFood = function appendFood(food) {
-	  $('#foods-table-index').append('\n    <article class="food-container">\n      <div class="row align-items-center">\n        <div class="col-3">\n          <p class="name">\n          ' + food.name + '\n          </p>\n        </div>\n        <div class="col-2">\n          <p class="calories">\n          ' + food.calories + '\n          </p>\n        </div>\n        <div class="col-4">\n          <p class="calories">\n            <progress max="2000" value="' + food.calories + '"></progress>\n          </p>\n        </div>\n        <div class="col-3">\n          <button id="' + food.id + '" class="delete-food-btn hand-drawn-button dotted thin" aria-label="delete"><i class="fas fa-trash-alt"></i> Delete </button>\n        </div>\n      </div>\n\n      <div>\n        <div class="row align-items-center">\n          <div class="col-3">\n            <h4> ADD TO: </h4>\n          </div>\n          <div class="col-1">\n            <button class="hand-drawn-button dotted thin add-to-btn" data-food-id="' + food.id + '" data-meal-id="1">BR</button>\n          </div>\n          <div class="col-1">\n            <button class="hand-drawn-button dotted thin add-to-btn" data-food-id="' + food.id + '" data-meal-id="2">LU</button>\n          </div>\n          <div class="col-1">\n            <button class="hand-drawn-button dotted thin add-to-btn" data-food-id="' + food.id + '" data-meal-id="3">SN</button>\n          </div>\n          <div class="col-1">\n            <button class="hand-drawn-button dotted thin add-to-btn" data-food-id="' + food.id + '" data-meal-id="4">DI</button>\n          </div>\n        </div>\n      </div>\n      ');
+	  $('#foods-table-index').append('\n    <article class="food-container">\n      <div class="row align-items-center">\n        <div class="col-3">\n          <p class="name">\n          ' + food.name + '\n          </p>\n        </div>\n        <div class="col-2">\n          <p class="calories">\n          ' + food.calories + '\n          </p>\n        </div>\n        <div class="col-4">\n          <p class="calories">\n            <progress max="2000" value="' + food.calories + '"></progress>\n          </p>\n        </div>\n        <div class="col-3">\n          <button id="' + food.id + '" class="delete-food-btn hand-drawn-button dotted thin" aria-label="delete"><i class="fas fa-trash-alt"></i> Delete </button>\n        </div>\n        <div class="col-4">\n          <button id="' + food.id + '" class="add-recipe-btn hand-drawn-button dotted thin" aria-label="recipe">Add to Recipe</button>\n        </div>\n      </div>\n\n      <div>\n        <div class="row align-items-center">\n          <div class="col-3">\n            <h4> ADD TO: </h4>\n          </div>\n          <div class="col-1">\n            <button class="hand-drawn-button dotted thin add-to-btn" data-food-id="' + food.id + '" data-meal-id="1">BR</button>\n          </div>\n          <div class="col-1">\n            <button class="hand-drawn-button dotted thin add-to-btn" data-food-id="' + food.id + '" data-meal-id="2">LU</button>\n          </div>\n          <div class="col-1">\n            <button class="hand-drawn-button dotted thin add-to-btn" data-food-id="' + food.id + '" data-meal-id="3">SN</button>\n          </div>\n          <div class="col-1">\n            <button class="hand-drawn-button dotted thin add-to-btn" data-food-id="' + food.id + '" data-meal-id="4">DI</button>\n          </div>\n        </div>\n      </div>\n      ');
 	};
 
 	var filterFoods = function filterFoods() {
@@ -249,7 +248,14 @@
 	  console.error({ error: error });
 	};
 
+	var recipeFoodArray = [];
+
+	var buildRecipeArray = function buildRecipeArray() {
+	  debugger;
+	};
+
 	$("#create-food-btn").on("click", addNewFood);
+	$("#add-recipe-btn").on("click", buildRecipeArray);
 	$("#foods-table-index").on("click", ".delete-food-btn", deleteFood);
 	$("#foods-table-index").on("click", ".add-to-btn", addFoodToMeal);
 	$("#meals-table-index").on("click", ".remove-from-meal", removeMealFood);
