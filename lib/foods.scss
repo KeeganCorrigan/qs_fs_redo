@@ -11,6 +11,15 @@
   .card-img-top {
     width: 200px;
   }
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+    .hand-drawn-button {
+      margin-top: 10px;
+    }
+  }
 }
 
 .disabled-btn {
@@ -34,7 +43,9 @@
 
 .meal-row {
   padding-top: 5px;
+  margin: 14px 0px 5px 0px;
   background-color: #DAECFF;
+  border-top: 3px solid seashell;
 }
 
 #toggle-food-menu {
@@ -48,6 +59,7 @@
 
 .add-to-btn {
   background-color: #DAECFF !important;
+  margin-right: 17px;
 }
 
 p {
@@ -157,17 +169,22 @@ a {
 nav {
   background-color: #436C87;
   color: #DAECFF;
-  .generate-recipe-btn {
+  .clear-recipe-btn {
     display: none;
     margin-right: 15px;
     color: white;
+    .fa-ban {
+      font-size: 20px;
+    }
   }
   .recipe-number {
-    margin-right: 5px;
-    background: white;
-    padding: 2px;
-    border: 3px solid white;
-    border-radius: 3px;
+    margin-right: 15px;
+    color: red;
+    font-weight: 700;
+    background-color: white;
+    width: 37px;
+    text-align: center;
+    border-radius: 50%;
   }
 }
 
