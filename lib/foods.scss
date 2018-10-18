@@ -5,6 +5,14 @@
   padding-right: 10px;
 }
 
+.recipe-container {
+  margin: 0px 15px 0px 15px;
+  width: 200px;
+  .card-img-top {
+    width: 200px;
+  }
+}
+
 .disabled-btn {
   background-color: white !important;
 }
