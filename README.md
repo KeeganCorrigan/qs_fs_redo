@@ -10,6 +10,8 @@ https://keegancorrigan.github.io/qs_fs_redo/
 
 ![image_1](https://github.com/KeeganCorrigan/qs_fs_redo/blob/master/Screen%20Shot%202018-10-17%20at%2011.41.25%20PM.png)
 
+![image_2](https://github.com/KeeganCorrigan/qs_fs_redo/blob/master/Screen%20Shot%202018-10-17%20at%209.13.33%20PM.png)
+
 ## Initial Setup
 
 1. You can clone this app:
