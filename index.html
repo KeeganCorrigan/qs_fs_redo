@@ -16,6 +16,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
+            <div id="food-recipe-amount"></div>
+            <button class="hand-drawn-button dotted thin generate-recipe-btn" id="generate-recipe-btn"><i class="fas fa-plus"></i>Generate Recipe </button>
 
             <button class="hand-drawn-button dotted thin" id="toggle-food-menu"><i class="fas fa-plus"></i>  Create Food</button>
           </ul>
@@ -41,23 +43,24 @@
       <div class="row">
         <div class="col">
           <h2><i class="fas fa-cookie"></i> Foodtrition Facts</h2>
-          <h4>Available Foods:</h4>
-          <div class="foods-table-index" id="foods-table-index">
-            <div class="row">
-              <div class="col-3">
-                <h4>Name</h4>
-              </div>
-              <div class="col-2">
-                <h4>Calories</h4>
-              </div>
-              <div class="col-5">
-                <h4>% of daily total</h4>
-              </div>
+          <h2>Available Foods:</h2>
+          <div class="row">
+            <div class="col-2">
+              <h4>Food</h4>
             </div>
+            <div class="col-2">
+              <h4>Calories</h4>
+            </div>
+            <div class="col-5">
+              <h4>% of daily total</h4>
+            </div>
+          </div>
+          <div class="foods-table-index" id="foods-table-index">
           </div>
         </div>
         <div class="col">
           <div id="total-calories"> </div>
+          <h2>Meals:</h2>
           <div id="meals-table-index"> </div>
         </div>
         <script

@@ -1,12 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Cabin+Sketch|Didact+Gothic');
 
+#foods-table-index {
+  border-right: 3px solid whitesmoke;
+  padding-right: 10px;
+}
+
 .disabled-btn {
-  background-color: gray !important;
+  background-color: white !important;
 }
 
 .fa-ban {
   font-size: 55px;
   padding: 5px;
+  color: red;
 }
 
 .form-container {
@@ -18,8 +24,9 @@
   font-size: 25px;
 }
 
-.meal-container {
-  padding-top: 20px;
+.meal-row {
+  padding-top: 5px;
+  background-color: #DAECFF;
 }
 
 #toggle-food-menu {
@@ -52,8 +59,13 @@ h4 {
 }
 
 .food-container {
-  padding: 5px 0px 5px 0px;
+  padding: 3px 0px 3px 0px;
+  .name {
+    font-size: 17px;
+  }
 }
+
+
 progress[value] {
   -webkit-appearance: none;
    appearance: none;
@@ -137,6 +149,18 @@ a {
 nav {
   background-color: #436C87;
   color: #DAECFF;
+  .generate-recipe-btn {
+    display: none;
+    margin-right: 15px;
+    color: white;
+  }
+  .recipe-number {
+    margin-right: 5px;
+    background: white;
+    padding: 2px;
+    border: 3px solid white;
+    border-radius: 3px;
+  }
 }
 
 nav {
@@ -153,10 +177,12 @@ nav {
   }
 }
 
+
+
 main {
   padding-left: 5%;
   padding-right: 5%;
-  padding-top: 3%;
+  padding-top: 1%;
 }
 
 #create-food-form {
