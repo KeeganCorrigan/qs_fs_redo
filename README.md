@@ -4,6 +4,8 @@ This is a simple calorie tracking app that allows users to create food, delete f
 
 You can see the live app at:
 
+https://keegancorrigan.github.io/qs_fs_redo/
+
 ## Initial Setup
 
 1. You can clone this app:
