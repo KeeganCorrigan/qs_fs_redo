@@ -33,8 +33,6 @@ Once the server is running, visit in your browser:
 
 * `http://localhost:8080/` to run your application.
 
-You will need to make sure that your Quantified Self API is also running at `http://localhost:3000`
-
 ## GitHub Pages Setup
 
 This site will be served from GitHub Pages in production.
