@@ -268,7 +268,6 @@
 	  if (foodsForRecipes.length < 5) {
 	    foodsForRecipes.push(event.currentTarget.id);
 	    foodForRecipesCalories += parseInt(event.currentTarget.dataset.calories);
-	    console.log(foodForRecipesCalories);
 	    $('#food-recipe-amount').html('<p class="hand-drawn-button dotted thin recipe-number ">  ' + foodsForRecipes.length + '      <p>');
 	  }
 
@@ -306,6 +305,7 @@
 
 	var clearRecipes = function clearRecipes() {
 	  foodsForRecipes = [];
+	  foodForRecipesCalories = 0;
 	  $(".clear-recipe-btn").toggle();
 	  $('.add-recipe-btn').attr('disabled', false);
 	  $('.add-recipe-btn').removeClass('disabled-btn');
