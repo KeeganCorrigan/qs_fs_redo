@@ -4,6 +4,8 @@ This is a simple calorie tracking app that allows users to create food, delete f
 
 You can see the live app at:
 
+https://keegancorrigan.github.io/qs_fs_redo/
+
 ## Initial Setup
 
 1. You can clone this app:
@@ -30,8 +32,6 @@ npm start
 Once the server is running, visit in your browser:
 
 * `http://localhost:8080/` to run your application.
-
-You will need to make sure that your Quantified Self API is also running at `http://localhost:3000`
 
 ## GitHub Pages Setup
 
