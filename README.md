@@ -6,6 +6,10 @@ You can see the live app at:
 
 https://keegancorrigan.github.io/qs_fs_redo/
 
+The backend is located at this repo:
+
+https://github.com/brickstar/quantified_self_express (visit for more details)
+
 ## Screenshots
 
 ![image_1](https://github.com/KeeganCorrigan/qs_fs_redo/blob/master/Screen%20Shot%202018-10-17%20at%2011.41.25%20PM.png)
