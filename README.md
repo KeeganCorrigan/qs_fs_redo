@@ -8,7 +8,7 @@ https://keegancorrigan.github.io/qs_fs_redo/
 
 ## Screenshots
 
-[image_1](https://github.com/KeeganCorrigan/qs_fs_redo/blob/master/Screen%20Shot%202018-10-17%20at%2011.41.25%20PM.png)
+![image_1](https://github.com/KeeganCorrigan/qs_fs_redo/blob/master/Screen%20Shot%202018-10-17%20at%2011.41.25%20PM.png)
 
 ## Initial Setup
 
