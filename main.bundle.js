@@ -199,6 +199,18 @@
 	  postNewFood({ food: { name: name, calories: calories } });
 	};
 
+	var postRecipeToFood = function postRecipeToFood(event) {
+	  event.preventDefault();
+
+	  var name = event.currentTarget.dataset.foodName;
+	  var calories = event.currentTarget.dataset.calories;
+
+	  $(event.currentTarget).toggle();
+
+	  clearNewFood();
+	  postNewFood({ food: { name: name, calories: calories } });
+	};
+
 	var newFoodPayload = function newFoodPayload(body) {
 	  return {
 	    method: "POST",
@@ -214,7 +226,7 @@
 	};
 
 	var appendFood = function appendFood(food) {
-	  $('#foods-table-index').append('\n    <article class="food-container">\n      <div class="row align-items-center">\n        <div class="col-2">\n          <p class="name">\n          ' + food.name + '\n          </p>\n        </div>\n        <div class="col-2">\n          <p class="calories">\n          ' + food.calories + '\n          </p>\n        </div>\n        <div class="col-4">\n          <p class="calories">\n            <progress max="2000" value="' + food.calories + '"></progress>\n          </p>\n        </div>\n        <div class="col-2">\n          <button id="' + food.id + '" class="delete-food-btn hand-drawn-button dotted thin" aria-label="delete"><i class="fas fa-trash-alt"></i> Delete </button>\n        </div>\n        <div class="col-2">\n          <button id="' + food.name + '" class="add-recipe-btn hand-drawn-button dotted thin" aria-label="recipe">Add to Recipe</button>\n        </div>\n      </div>\n\n      <div>\n        <div class="row align-items-center">\n          <div class="col-1">\n            <h4><i class="fas fa-plus"></i></h4>\n          </div>\n          <div class="col-11">\n            <button class="hand-drawn-button dotted thin add-to-btn" data-food-id="' + food.id + '" data-meal-id="1">Breakfast</button>\n\n            <button class="hand-drawn-button dotted thin add-to-btn" data-food-id="' + food.id + '" data-meal-id="2">Lunch</button>\n\n            <button class="hand-drawn-button dotted thin add-to-btn" data-food-id="' + food.id + '" data-meal-id="3">Snack</button>\n\n            <button class="hand-drawn-button dotted thin add-to-btn" data-food-id="' + food.id + '" data-meal-id="4">Dinner</button>\n          </div>\n        </div>\n      </div>\n      ');
+	  $('#foods-table-index').append('\n    <article class="food-container">\n      <div class="row align-items-center">\n        <div class="col-2">\n          <p class="name">\n          ' + food.name + '\n          </p>\n        </div>\n        <div class="col-2">\n          <p class="calories">\n          ' + food.calories + '\n          </p>\n        </div>\n        <div class="col-4">\n          <p class="calories">\n            <progress max="2000" value="' + food.calories + '"></progress>\n          </p>\n        </div>\n        <div class="col-2">\n          <button id="' + food.id + '" class="delete-food-btn hand-drawn-button dotted thin" aria-label="delete"><i class="fas fa-trash-alt"></i> Delete </button>\n        </div>\n        <div class="col-2">\n          <button id="' + food.name + '" data-calories="' + food.calories + '" class="add-recipe-btn hand-drawn-button dotted thin" aria-label="recipe">Add to Recipe</button>\n        </div>\n      </div>\n\n      <div>\n        <div class="row align-items-center">\n          <div class="col-1">\n            <h4><i class="fas fa-plus"></i></h4>\n          </div>\n          <div class="col-11">\n            <button class="hand-drawn-button dotted thin add-to-btn" data-food-id="' + food.id + '" data-meal-id="1">Breakfast</button>\n\n            <button class="hand-drawn-button dotted thin add-to-btn" data-food-id="' + food.id + '" data-meal-id="2">Lunch</button>\n\n            <button class="hand-drawn-button dotted thin add-to-btn" data-food-id="' + food.id + '" data-meal-id="3">Snack</button>\n\n            <button class="hand-drawn-button dotted thin add-to-btn" data-food-id="' + food.id + '" data-meal-id="4">Dinner</button>\n          </div>\n        </div>\n      </div>\n      ');
 	};
 
 	var filterFoods = function filterFoods() {
@@ -250,10 +262,13 @@
 	};
 
 	var foodsForRecipes = [];
+	var foodForRecipesCalories = 0;
 
 	var buildRecipeArray = function buildRecipeArray(event) {
 	  if (foodsForRecipes.length < 5) {
 	    foodsForRecipes.push(event.currentTarget.id);
+	    foodForRecipesCalories += parseInt(event.currentTarget.dataset.calories);
+	    console.log(foodForRecipesCalories);
 	    $('#food-recipe-amount').html('<p class="hand-drawn-button dotted thin recipe-number ">  ' + foodsForRecipes.length + '      <p>');
 	  }
 
@@ -306,9 +321,10 @@
 	};
 
 	var appendRecipe = function appendRecipe(recipe) {
-	  $('#recipes-table-index').append('\n    <div class="card recipe-container">\n      <img class="card-img-top" src="' + recipe.imageUrlsBySize[90] + '" alt="Card image cap">\n      <div class="card-body">\n        <h5 class="card-title recipe-name">Recipe Name</h5>\n        <p class="card-text">' + recipe.recipeName + '</p>\n        <a href="https://yummly.com/recipe/' + recipe.id + '" class="hand-drawn-button dotted thin">View Recipe</a>\n      </div>\n    </div>\n    ');
+	  $('#recipes-table-index').append('\n    <div class="card recipe-container">\n      <img class="card-img-top" src="' + recipe.imageUrlsBySize[90] + '" alt="Card image cap">\n      <div class="card-body">\n        <h5 class="card-title recipe-name">Recipe Name</h5>\n        <p class="card-text">' + recipe.recipeName + '</p>\n        <a href="https://yummly.com/recipe/' + recipe.id + '" class="hand-drawn-button dotted thin">View Recipe</a>\n        <button class="hand-drawn-button dotted thin add-recipe-to-food-btn" data-food-name="' + recipe.recipeName + '" data-calories="' + foodForRecipesCalories + '">Add Food</button>\n      </div>\n    </div>\n    ');
 	};
 
+	$("#recipes-table-index").on("click", ".add-recipe-to-food-btn", postRecipeToFood);
 	$(".navbar").on("click", "#clear-recipe-btn", clearRecipes);
 	$("#create-food-btn").on("click", addNewFood);
 	$("#foods-table-index").on("click", ".add-recipe-btn", generateRecipe);
