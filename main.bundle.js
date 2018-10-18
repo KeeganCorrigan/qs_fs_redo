@@ -268,12 +268,33 @@
 	  }
 	};
 
-	var getRecipes = function getRecipes(event) {
-	  console.log(foodsForRecipes);
-	  debugger;
+	var buildRecipePath = function buildRecipePath() {
+	  return foodsForRecipes.map(function (food) {
+	    return "&allowedIngredient[]=" + food.replace(/\s/g, '');
+	  }).join('');
 	};
 
-	$(".navbar").on("click", "#generate-recipe-btn", getRecipesa);
+	var getRecipes = function getRecipes(event) {
+	  console.log(buildRecipePath());
+	  var recipeObjects = fetch('https://api.yummly.com/v1/api/recipes?_app_id=9fa7654f&_app_key=025d8edd63531b17ec8390e1b7a92fc5' + buildRecipePath()).then(function (response) {
+	    return response.json();
+	  }).then(function (response) {
+	    return appendRecipes(response.matches);
+	  });
+	};
+
+	var appendRecipes = function appendRecipes(recipes) {
+	  console.log(getRecipes);
+	  return recipes.slice(0, 6).forEach(function (recipe) {
+	    appendRecipe(recipe);
+	  });
+	};
+
+	var appendRecipe = function appendRecipe(recipe) {
+	  $('#recipes-table-index').append('\n    <div class="card recipe-container">\n      <img class="card-img-top" src="' + recipe.imageUrlsBySize[90] + '" alt="Card image cap">\n      <div class="card-body">\n        <h5 class="card-title recipe-name">Recipe Name</h5>\n        <p class="card-text">' + recipe.recipeName + '</p>\n        <a href="https://yummly.com/recipe/' + recipe.id + '" class="hand-drawn-button dotted thin">View Recipe</a>\n      </div>\n    </div>\n    ');
+	};
+
+	$(".navbar").on("click", "#generate-recipe-btn", getRecipes);
 	$("#create-food-btn").on("click", addNewFood);
 	$("#foods-table-index").on("click", ".add-recipe-btn", buildRecipeArray);
 	$("#foods-table-index").on("click", ".delete-food-btn", deleteFood);
@@ -663,7 +684,7 @@
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Cabin+Sketch|Didact+Gothic);", ""]);
 
 	// module
-	exports.push([module.id, "#foods-table-index {\n  border-right: 3px solid whitesmoke;\n  padding-right: 10px; }\n\n.disabled-btn {\n  background-color: white !important; }\n\n.fa-ban {\n  font-size: 55px;\n  padding: 5px;\n  color: red; }\n\n.form-container {\n  padding: 10px; }\n\n.form-calories, .form-name {\n  font-family: 'Cabin Sketch';\n  font-size: 25px; }\n\n.meal-row {\n  padding-top: 5px;\n  background-color: #DAECFF; }\n\n#toggle-food-menu {\n  color: white; }\n\n.food-container:hover {\n  transition: ease .5s;\n  box-shadow: 0 0px 2px 0 rgba(0, 0, 0, 0.2); }\n\n.add-to-btn {\n  background-color: #DAECFF !important; }\n\np {\n  margin: 0; }\n\nh1, h2, h4, h5 {\n  font-family: 'Cabin Sketch'; }\n\nh2 {\n  padding-top: 10px; }\n\nh4 {\n  color: #f05555; }\n\n.food-container {\n  padding: 3px 0px 3px 0px; }\n  .food-container .name {\n    font-size: 17px; }\n\nprogress[value] {\n  -webkit-appearance: none;\n  appearance: none;\n  width: 200px;\n  height: 20px; }\n\nprogress[value]::-webkit-progress-bar {\n  background-color: #eee;\n  border-radius: 2px;\n  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset; }\n\nprogress[value]::-webkit-progress-value {\n  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25)), -webkit-linear-gradient(left, #09c, #f44);\n  border-radius: 2px;\n  background-size: 35px 20px, 100% 100%, 100% 100%; }\n\n* {\n  box-sizing: border-box; }\n\n.filter-search {\n  width: 40%;\n  background-color: white;\n  margin-left: 30px; }\n\n#filter-foods {\n  background-color: white; }\n\n.hand-drawn-button {\n  align-self: center;\n  background: transparent;\n  padding: .1rem .1rem;\n  transition: all .5s ease;\n  color: #41403E;\n  font-size: 1.3rem;\n  letter-spacing: 1px;\n  outline: none;\n  box-shadow: 20px 38px 34px -26px rgba(0, 0, 0, 0.2);\n  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px; }\n  .hand-drawn-button:hover {\n    box-shadow: 2px 8px 4px -6px rgba(0, 0, 0, 0.3); }\n  .hand-drawn-button.lined.thick {\n    border: solid 7px #41403E; }\n  .hand-drawn-button.dotted.thick {\n    border: dotted 5px #41403E; }\n  .hand-drawn-button.dashed.thick {\n    border: dashed 5px #41403E; }\n  .hand-drawn-button.lined.thin {\n    border: solid 2px #41403E; }\n  .hand-drawn-button.dotted.thin {\n    border: dotted 2px #41403E; }\n  .hand-drawn-button.dashed.thin {\n    border: dashed 2px #41403E; }\n\nbody {\n  font-family: 'Didact Gothic', sans-serif; }\n\na {\n  text-decoration: none; }\n\nnav {\n  background-color: #436C87;\n  color: #DAECFF; }\n  nav .generate-recipe-btn {\n    display: none;\n    margin-right: 15px;\n    color: white; }\n  nav .recipe-number {\n    margin-right: 5px;\n    background: white;\n    padding: 2px;\n    border: 3px solid white;\n    border-radius: 3px; }\n\nnav {\n  font-family: 'Cabin Sketch';\n  font-size: 19px;\n  background-color: #436C87;\n  color: #DAECFF; }\n  nav .nav-link {\n    color: #DAECFF; }\n  nav .navbar-brand {\n    font-size: 26px;\n    color: white; }\n\nmain {\n  padding-left: 5%;\n  padding-right: 5%;\n  padding-top: 1%; }\n\n#create-food-form {\n  display: none;\n  background-color: #DAECFF;\n  border-radius: 10px;\n  margin-top: 20px; }\n", ""]);
+	exports.push([module.id, "#foods-table-index {\n  border-right: 3px solid whitesmoke;\n  padding-right: 10px; }\n\n.recipe-container {\n  margin: 0px 15px 0px 15px;\n  width: 200px; }\n  .recipe-container .card-img-top {\n    width: 200px; }\n\n.disabled-btn {\n  background-color: white !important; }\n\n.fa-ban {\n  font-size: 55px;\n  padding: 5px;\n  color: red; }\n\n.form-container {\n  padding: 10px; }\n\n.form-calories, .form-name {\n  font-family: 'Cabin Sketch';\n  font-size: 25px; }\n\n.meal-row {\n  padding-top: 5px;\n  background-color: #DAECFF; }\n\n#toggle-food-menu {\n  color: white; }\n\n.food-container:hover {\n  transition: ease .5s;\n  box-shadow: 0 0px 2px 0 rgba(0, 0, 0, 0.2); }\n\n.add-to-btn {\n  background-color: #DAECFF !important; }\n\np {\n  margin: 0; }\n\nh1, h2, h4, h5 {\n  font-family: 'Cabin Sketch'; }\n\nh2 {\n  padding-top: 10px; }\n\nh4 {\n  color: #f05555; }\n\n.food-container {\n  padding: 3px 0px 3px 0px; }\n  .food-container .name {\n    font-size: 17px; }\n\nprogress[value] {\n  -webkit-appearance: none;\n  appearance: none;\n  width: 200px;\n  height: 20px; }\n\nprogress[value]::-webkit-progress-bar {\n  background-color: #eee;\n  border-radius: 2px;\n  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset; }\n\nprogress[value]::-webkit-progress-value {\n  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25)), -webkit-linear-gradient(left, #09c, #f44);\n  border-radius: 2px;\n  background-size: 35px 20px, 100% 100%, 100% 100%; }\n\n* {\n  box-sizing: border-box; }\n\n.filter-search {\n  width: 40%;\n  background-color: white;\n  margin-left: 30px; }\n\n#filter-foods {\n  background-color: white; }\n\n.hand-drawn-button {\n  align-self: center;\n  background: transparent;\n  padding: .1rem .1rem;\n  transition: all .5s ease;\n  color: #41403E;\n  font-size: 1.3rem;\n  letter-spacing: 1px;\n  outline: none;\n  box-shadow: 20px 38px 34px -26px rgba(0, 0, 0, 0.2);\n  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px; }\n  .hand-drawn-button:hover {\n    box-shadow: 2px 8px 4px -6px rgba(0, 0, 0, 0.3); }\n  .hand-drawn-button.lined.thick {\n    border: solid 7px #41403E; }\n  .hand-drawn-button.dotted.thick {\n    border: dotted 5px #41403E; }\n  .hand-drawn-button.dashed.thick {\n    border: dashed 5px #41403E; }\n  .hand-drawn-button.lined.thin {\n    border: solid 2px #41403E; }\n  .hand-drawn-button.dotted.thin {\n    border: dotted 2px #41403E; }\n  .hand-drawn-button.dashed.thin {\n    border: dashed 2px #41403E; }\n\nbody {\n  font-family: 'Didact Gothic', sans-serif; }\n\na {\n  text-decoration: none; }\n\nnav {\n  background-color: #436C87;\n  color: #DAECFF; }\n  nav .generate-recipe-btn {\n    display: none;\n    margin-right: 15px;\n    color: white; }\n  nav .recipe-number {\n    margin-right: 5px;\n    background: white;\n    padding: 2px;\n    border: 3px solid white;\n    border-radius: 3px; }\n\nnav {\n  font-family: 'Cabin Sketch';\n  font-size: 19px;\n  background-color: #436C87;\n  color: #DAECFF; }\n  nav .nav-link {\n    color: #DAECFF; }\n  nav .navbar-brand {\n    font-size: 26px;\n    color: white; }\n\nmain {\n  padding-left: 5%;\n  padding-right: 5%;\n  padding-top: 1%; }\n\n#create-food-form {\n  display: none;\n  background-color: #DAECFF;\n  border-radius: 10px;\n  margin-top: 20px; }\n", ""]);
 
 	// exports
 
