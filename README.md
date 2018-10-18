@@ -1,6 +1,6 @@
 # Quantified Self Front-end
 
-This is a simple calorie tracking app that allows users to create food, delete food, add foods to meals, remove food from meals, and will track calories using progress bars. 
+This is a simple calorie tracking app that allows users to create food, delete food, add foods to meals, remove food from meals, generate recipes, and track calories using progress bars. 
 
 You can see the live app at:
 
