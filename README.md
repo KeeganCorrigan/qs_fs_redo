@@ -1,40 +1,22 @@
 # Quantified Self Front-end
 
+This is a simple calorie tracking app that allows users to create food, delete food, add foods to meals, remove food from meals, and will track calories using progress bars. 
+
+You can see the live app at:
+
 ## Initial Setup
 
-1. Clone this starter kit repository and rename the repository to `quantified-self-fe` in one command
+1. You can clone this app:
 
   ```shell
-  git clone git@github.com:turingschool-examples/qs-fe-starter-kit.git quantified-self-fe
+  https://github.com/KeeganCorrigan/qs_fs_redo.git
   ```
-2. Change into the `quantified-self-fe` directory
+2. Change into the `qs-fs-redo` directory
 
-3. Remove the default remote (origin)
-
-  ```shell
-  git remote rm origin
-  ```
-
-4. Create a new repository on GitHub named `quantified-self-fe`
-
-5. Add your new repository remote - **your remote URL and user name will be different in the command below**
-
-  ```shell
-  git remote add origin git@github.com:<YOUR GITHUB NAME>/quantified-self-fe.git
-  ```
-
-6. Install the dependencies of the starter kit
+3. Install the dependencies of the starter kit
 
   ```shell
   npm install
-  ```
-
-7. Add, commit, and push up to your repository
-
-  ```shell
-  git add .
-  git commit -m "Initial commit using starter kit"
-  git push origin master
   ```
 
 ## Running the Server Locally
@@ -77,3 +59,6 @@ Be sure to `npm run build` and commit before each push to master. A few seconds 
 * [Mocha](https://mochajs.org/)
 * [Chai](https://chaijs.com/)
 
+### Other notes:
+
+Created by [Matt Bricker](https://github.com/brickstar) and [Keegan Corrigan](https://github.com/keegancorrigan/)
