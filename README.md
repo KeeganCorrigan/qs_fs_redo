@@ -1,10 +1,20 @@
 # Quantified Self Front-end
 
-This is a simple calorie tracking app that allows users to create food, delete food, add foods to meals, remove food from meals, and will track calories using progress bars. 
+This is a simple calorie tracking app that allows users to create food, delete food, add foods to meals, remove food from meals, generate recipes, and track calories using progress bars. 
 
 You can see the live app at:
 
 https://keegancorrigan.github.io/qs_fs_redo/
+
+The backend is located at this repo:
+
+https://github.com/brickstar/quantified_self_express (visit for more details)
+
+## Screenshots
+
+![image_1](https://github.com/KeeganCorrigan/qs_fs_redo/blob/master/Screen%20Shot%202018-10-17%20at%2011.41.25%20PM.png)
+
+![image_2](https://github.com/KeeganCorrigan/qs_fs_redo/blob/master/Screen%20Shot%202018-10-17%20at%209.13.33%20PM.png)
 
 ## Initial Setup
 
@@ -49,7 +59,7 @@ In order to see your application running on production:
 
 5. Under the Github Pages section of Options, select 'master' as your source and click `Save`
 
-Be sure to `npm run build` and commit before each push to master. A few seconds after you push up, you should be able to see your application at <https://your-github-username.github.io/quantified-self-fe>.
+Be sure to `npm run build` and commit before each push to master.
 
 ## Built With
 
